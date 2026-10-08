@@ -1,5 +1,5 @@
 # Even G2 表示テスト
-検証ID: G2-LIVE-MAIN-20261008-V2
+検証ID: G2-IPHONETERM-CODEX-20261009-01
 
 状態: 実コミットによる自動更新テスト
 
