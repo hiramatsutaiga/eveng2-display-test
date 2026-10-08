@@ -14,6 +14,32 @@
         "focus": true
       },
       "problemMatcher": []
+    },
+    {
+      "label": "G2: 自由な依頼→Codex→GitHub mainに公開",
+      "type": "process",
+      "command": "bash",
+      "args": [
+        ".vscode/run-g2-freeform.sh",
+        "${input:g2UserPrompt}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "focus": true
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "g2UserPrompt",
+      "type": "promptString",
+      "description": "Codexへの依頼（結果は公開GitHub mainに自動送信）",
+      "default": "PythonでCSVの欠損値を除去する方法と、そのコードを説明してください"
     }
   ]
 }
