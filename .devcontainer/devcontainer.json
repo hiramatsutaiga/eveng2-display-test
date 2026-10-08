@@ -1,0 +1,5 @@
+{
+  "name": "iPhone browser Codex CLI test",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "postCreateCommand": "npm install -g @openai/codex && codex --version"
+}
