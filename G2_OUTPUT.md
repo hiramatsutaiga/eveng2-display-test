@@ -1,22 +1,26 @@
-# Even G2 表示テスト
-検証ID: G2-IPHONETERM-CODEX-20261009-01
-
-状態: 実コミットによる自動更新テスト
+# CSVの欠損行を除去
 
 ## 修正内容
-欠損行を除去した後のインデックスを振り直すよう変更しました。
+pandasでCSVを読み込み、
+欠損値を含む行を削除して保存します。
+事前に `pip install pandas` を実行し、
+以下をCSVと同じフォルダで実行します。
 
 ## コード
 ```python
 import pandas as pd
 
+# 入力ファイル名を指定
 df = pd.read_csv("data.csv")
-df = df.dropna().reset_index(drop=True)
-print(df.head())
+
+# 1列でも欠損がある行を削除
+clean = df.dropna()
+
+# 別ファイルへ保存（行番号なし）
+clean.to_csv("clean.csv", index=False)
 ```
 
-## 実行方法
-`python main.py`
-
-## テスト結果
-初期サンプル。GitHubから自動取得・表示できることを確認してください。
+## 修正理由
+`read_csv` は空欄などを欠損値として扱い、
+`dropna` はその行を削除します。
+元のCSVを残すため、別名で保存します。
