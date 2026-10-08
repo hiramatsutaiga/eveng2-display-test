@@ -1,16 +1,17 @@
 # Even G2 表示テスト
+検証ID: G2-LIVE-MAIN-20261008-V2
 
-状態: 初回コミット
+状態: 実コミットによる自動更新テスト
 
 ## 修正内容
-CSVデータの欠損行を除去する処理を追加しました。
+欠損行を除去した後のインデックスを振り直すよう変更しました。
 
 ## コード
 ```python
 import pandas as pd
 
 df = pd.read_csv("data.csv")
-df = df.dropna()
+df = df.dropna().reset_index(drop=True)
 print(df.head())
 ```
 
