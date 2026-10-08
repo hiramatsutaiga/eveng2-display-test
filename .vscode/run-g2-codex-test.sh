@@ -8,8 +8,9 @@ if [ "$current_branch" != "$expected_branch" ]; then
   exit 2
 fi
 if ! codex login status; then
-  echo "Codex CLI is not authenticated. Complete ChatGPT device-code sign-in first."
-  exit 3
+  echo "ChatGPT sign-in required. Start device-code login now."
+  codex login --device-auth
+  codex login status
 fi
 echo "Starting Codex CLI. No prompt copy/paste is required."
 codex exec --sandbox workspace-write "In G2_OUTPUT.md, change ONLY the value of the existing line that begins with '検証ID:' to 'G2-IPHONETERM-CODEX-20261009-01'. Keep all other lines, whitespace, and files exactly as they are. Do not perform git operations. After editing, report the changed line."
